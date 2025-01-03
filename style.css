@@ -1,10 +1,184 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    font-family: 'Calibri', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
     margin: 0;
-    padding: 20px;
-}
-h1 {
-    color: #0078d7;
-}
+    padding: 0px;
+    }
+   
+    .image-container {
+    position: relative;  /* Määritetään, että nappi voidaan sijoittaa suhteessa kuvaan */
+    width: 100%;        /* Kuva ja kontaineri ovat saman kokoisia */
+    height: 100%;
+    }
+    img {
+        width: 100%;         /* Kuva täyttää koko kontainerin */
+        height: 100%;
+        display: block;      /* Poistaa ylimääräisen tilan kuvan ympäriltä */
+        }
+    .header {
+        position: absolute;
+        top: 25px;
+        left: 90px;
+        display: flex;
+        align-items: center; /* Asettaa menu ja otsikon samalle riville */
+        z-index: 3;
+      }
+          /* Otsikko */
+    .title {
+        font-size: 30px;
+        font-family: 'Calibri', sans-serif; /* Määrittää fontin */
+        color: white;
+        font-weight: bold;
+      }
+      /* Teksti ja nappula */
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 5%; /* Lisää tilaa vasemmalle */
+    }
+
+      /* Teksti kuvan päällä - etusivu */
+      .text-overlay {
+        /*position: absolute;
+        /*bottom: 50%;
+        /*left: 5%;*/
+        color: white;
+        font-size: 60px;
+        font-family: 'Calibri', sans-serif; /* Määrittää fontin */
+        margin-bottom: 0px; /* Lisää tilaa tekstin ja napin väliin */
+
+    }
+    .text-overlay2 {
+        /*position: absolute;
+        /*bottom: 50%;
+        /*left: 5%;*/
+        color: white;
+        font-size: 20px;
+        font-family: 'Calibri', sans-serif; /* Määrittää fontin */
+        margin-bottom: 20px; /* Lisää tilaa tekstin ja napin väliin */
+
+    }
+    .button {
+    /*position: absolute;  /* Nappi asetetaan kuvan päälle */
+    /*bottom: 40%;         /* Nappi tulee kuvan alareunaan */
+    /*left: 5%;            /* Keskittää napin vaakasuunnassa */
+    transform-origin: center;
+    padding: 20px 50px;   /* Napin sisäiset marginaalit */
+    background-color: rgb(128, 0, 32); /* Tumma tausta */
+    color: white;         /* Nappulan teksti valkoinen */
+    border: black;         /* Poistaa napin reunan */
+    border-radius: 10px;   /* Pyöristetyt kulmat */
+    cursor: pointer;      /* Näyttää sormea, kun hiiri on napin päällä */
+    font-family: 'Calibri', sans-serif; /* Määrittää fontin */
+    font-size: 20px; /* Määrittää tekstin koon */
+    font-weight: bold; /* Tekstin paksuus */
+    }
+
+    .button:hover {
+        transform: scale(1.05); /* Kasvaa hieman */
+        transition: transform 0.2s; /* Lisää animaation */
+    }
+
+    /* Sivun tummennus  kun menu aukeaa*/
+    .page-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 1;
+        display: none; /* Piilotetaan oletuksena */
+    }
+    /* Kolme viivaa*/
+    .menu-bar {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        z-index: 3; /* Varmistaa, että hamburger-menu on päällimmäisenä */
+      }
+      .menu-bar div {
+        width: 100%;
+        height: 5px;
+        background-color: rgb(128, 0, 32);
+        border-radius: 5px;
+      }
+
+      /* Valikko (piilotetaan aluksi) */
+    .menu {
+        position: absolute;
+        top: 0;
+        left: -450px;
+        width: 400px;
+        height: 95%;
+        background-color: rgb(128, 0, 32);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px;
+        border-radius: 15px;
+        margin: 10px;
+        transition: left 0.3s ease; /* Animaatio liu'uttamiseksi */
+        z-index: 2; /* Varmistaa, että valikko tulee hamburger-menun alle */
+      }
+  
+      .menu a {
+        color: white;
+        text-decoration: none;
+        margin: 10px 0;
+        font-size: 18px;
+      }
+  
+      /* Animaatio valikon avaamiseksi */
+      .menu.open {
+        left: 0; /* Valikko tulee näkyviin, kun luokka on 'open' */
+      }
+
+      /* X-nappi */
+      .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        display: none; /* Piilotetaan aluksi */
+      }
+  
+      .menu.open .close-btn {
+        display: block; /* Näytetään X-nappi, kun valikko on auki */
+      }
+  
+      /* Hamburger-menu muuttuu X:ksi */
+      .menu-bar.open div:nth-child(1) {
+        transform: rotate(45deg); /* Ylin viiva kiertyy 45 astetta */
+        position: relative;
+        background-color: rgb(0, 0, 0);
+        top: 12px;
+      }
+  
+      .menu-bar.open div:nth-child(2) {
+        opacity: 0; /* Keskimmäinen viiva piilotetaan */
+      }
+  
+      .menu-bar.open div:nth-child(3) {
+        transform: rotate(-45deg); /* Alin viiva kiertyy -45 astetta */
+        position: relative;
+        background-color: rgb(0, 0, 0);
+        bottom: 13px;
+      }
