@@ -4,7 +4,7 @@ body {
     color: #000000;
     margin: 0;
     padding: 0px;
-    overflow-x: hidden
+    overflow-x: hidden;
     }
    
     .image-container {
@@ -12,12 +12,25 @@ body {
     width: 100%;        /* Kuva ja kontaineri ovat saman kokoisia */
     height: 100vh;
     }
-    img {
+    .image-container img {
         width: 100%;         /* Kuva täyttää koko kontainerin */
         height: 100%;
         display: block;
         object-fit: cover;      /* Poistaa ylimääräisen tilan kuvan ympäriltä */
         }
+    .image-container_otayhteytta {
+      position: relative;  /* Määritetään, että nappi voidaan sijoittaa suhteessa kuvaan */
+      width: 100%;        /* Kuva ja kontaineri ovat saman kokoisia */
+      height: 50vh;
+      }
+      .image-container_otayhteytta img {
+          width: 100%;         /* Kuva täyttää koko kontainerin */
+          height: 100%;
+          display: block;
+          object-fit: cover;      /* Poistaa ylimääräisen tilan kuvan ympäriltä */
+          object-position: bottom;
+          }
+
     .header {
         position: absolute;
         top: 25px;
@@ -32,6 +45,16 @@ body {
         color: white;
         font-weight: bold;
       }
+          .title a {
+            color: white; /* Sama väri kuin otsikolla */
+            text-decoration: none; /* Poistaa alleviivauksen */
+            font-size: 30px; /* Sama fonttikoko kuin otsikolla */
+            font-weight: bold; /* Sama fonttipaino kuin otsikolla */
+        }
+        
+          .title a:hover {
+            color: rgb(128, 0, 32);
+        }
       /* Teksti ja nappula */
       .overlay {
         position: absolute;
@@ -78,12 +101,12 @@ body {
     cursor: pointer;      /* Näyttää sormea, kun hiiri on napin päällä */
     font-size: 20px; /* Määrittää tekstin koon */
     font-weight: bold; /* Tekstin paksuus */
+    text-decoration: none;
     }
-
-    .button:hover {
-        transform: scale(1.05); /* Kasvaa hieman */
-        transition: transform 0.2s; /* Lisää animaation */
-    }
+      .button:hover {
+          transform: scale(1.05); /* Kasvaa hieman */
+          transition: transform 0.2s; /* Lisää animaation */
+      }
 
     /* Sivun tummennus  kun menu aukeaa*/
     .page-overlay {
@@ -180,3 +203,58 @@ body {
         background-color: rgb(0, 0, 0);
         bottom: 13px;
       }
+      /*Ota yhteyttä forms*/
+      .contact-form-container {
+        background-color: #ffffff;
+        padding: 20px;
+        margin: 20px auto;
+        width: 80%;
+        max-width: 600px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    
+    .contact-form-container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .contact-form-container form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .contact-form-container label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    
+    .contact-form-container input
+    ,.contact-form-container textarea{
+        margin-bottom: 15px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-form-container textarea {
+        height: 200px;
+        resize: none;
+    }
+    
+    .contact-form-container button {
+        padding: 10px;
+        font-size: 16px;
+        background-color: #800020;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .contact-form-container button:hover {
+        background-color: #66001a;
+    }
