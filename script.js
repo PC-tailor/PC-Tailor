@@ -9,4 +9,10 @@ function toggleMenu() {
         overlay.style.display = menu.classList.contains('open') ? 'block' : 'none';
     }
    
-   
+ function callHeader() {
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+    });
+ }

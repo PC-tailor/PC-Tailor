@@ -3,40 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC Tailor</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="callHeader()">
     <div class="image-container">
         <img src="Kuva.jpeg" alt="Kuva">
-
+        
+        <div id="header-placeholder" ></div>
+        
         <div class="overlay">
             <div class="text-overlay">Räätälöidyt ratkaisut</div>
             <div class="text-overlay2">Tietokoneiden konsultaatio, kasauspalvelu ja huolto</div>
             <a href="contact.html" class="button">Ota yhteyttä</a>
-            <!--<button class="button">Ota yhteyttä</button>-->
         </div>
-            <!-- Yläosa (menu + otsikko) -->
-        <div class="header">
-            <!-- Otsikko -->
-            <div class="title">PC tailor</div>
-        </div>
-        <!-- Kolme viivaa (hamburger-menu) -->
-        <div class="menu-bar" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-      
-      <!-- Valikko -->
-        <div class="menu">
-            <a href="#">Valikko 1</a>
-            <a href="#">Valikko 2</a>
-            <a href="#">Valikko 3</a>
-
-        </div>
+        <div class="page-overlay" id="page-overlay"></div>
     </div>
-    <div class="page-overlay" id="page-overlay"></div>
+
 
     <script src="script.js"></script>
 </body>
